@@ -2,13 +2,26 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
+const PORT = process.env.PORT || 3001;
 require("dotenv").config();
 
+console.log(
+"user: " + process.env.USERNAME,
+"host: " + process.env.HOST,
+"password: " + process.env.SQLPASS,
+"database: " + process.env.DATABASE
+);
+
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
 const db = mysql.createConnection({
-    user: process.env.USER,
+    user: process.env.USERNAME,
     host: process.env.HOST,
     password: process.env.SQLPASS,
     database: process.env.DATABASE
@@ -33,6 +46,16 @@ app.post('/create', (req, res) => {
     );    
 });
 
-app.listen(3000, () => {
-    console.log("server is running 3001");
+app.get('/factories', (req, res) => {
+    db.query('SELECT * FROM factories', (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.listen(PORT, () => {
+    console.log(`server is running on ${PORT}`);
 });
