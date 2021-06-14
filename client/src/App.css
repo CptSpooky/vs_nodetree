@@ -7,3 +7,22 @@
 input {
     width: 100px;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background-color: grey;
+}
+
+.card:focus {
+    border-color: blue;
+}
