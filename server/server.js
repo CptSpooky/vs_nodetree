@@ -18,8 +18,9 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-  }
+}
 
+/* Database connection*/
 const db = mysql.createConnection({
     user: process.env.USERNAME,
     host: process.env.HOST,
@@ -27,6 +28,7 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
+/* Create a factory */
 app.post('/create', (req, res) => {
     const name = req.body.name;
     const qty = req.body.qty;
@@ -40,12 +42,14 @@ app.post('/create', (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.send("Values inserted");
+                /* Grab the Id of inserted operation*/
+                res.send("" + result.insertId);
             }
         }
     );    
 });
 
+/* Get all factories */
 app.get('/factories', (req, res) => {
     db.query('SELECT * FROM factories', (err, result) => {
         if (err) {
@@ -55,6 +59,53 @@ app.get('/factories', (req, res) => {
         }
     });
 });
+
+/* Get one factory */
+app.get('/factories/:id', (req, res) => {
+    db.query('SELECT * FROM factories WHERE id = ?',[req.params.id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+/* Delete factory */
+app.delete('/factories/:id', (req, res) => {
+    console.log("server delete")
+    console.log("ID: " + req.params.id);
+    console.log("Params: " + JSON.stringify(req.params));
+    db.query('DELETE FROM factories WHERE id = ?',[req.params.id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send('Deleted successfully');
+        }
+    });
+});
+
+/* Update a factory */
+app.put('/factories/:id', (req, res) => {
+    const name = req.body.name;
+    const qty = req.body.qty;
+    const max = req.body.max;
+    const min = req.body.min;
+    const id = req.params.id;
+
+    db.query(
+        'UPDATE factories SET name = ?, qty = ?, max = ?, min = ? WHERE id = ?', 
+        [name, qty, max, min, id], 
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Values updated");
+            }
+        }
+    );    
+});
+
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
