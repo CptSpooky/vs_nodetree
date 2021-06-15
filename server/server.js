@@ -72,7 +72,7 @@ app.get('/', (req, res) => {
 });
 
 /* Get all factories */
-app.get('/factories', (req, res) => {
+app.get('/api/factories', (req, res) => {
     db.query('SELECT * FROM factories', (err, result) => {
         if (err) {
             console.log(err);

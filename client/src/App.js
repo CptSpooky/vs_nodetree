@@ -29,7 +29,7 @@ function App() {
   /* Get factories */
   const getFactory = () => {
     console.log("get factory");
-    Axios.get('./factories').then((response) => { 
+    Axios.get('/api/factories').then((response) => { 
       setFactoryList(response.data);
     });
   }
