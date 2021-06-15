@@ -42,18 +42,20 @@ const TreeChart = ({data, selectedId, selected}) => {
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}
     >
-    {data.map((val, key) => {
-      return (
-        <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
-            {generateNums(val).map((val, key) => {
-                return(
-                    <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"" + val}></TreeItem>
-                );
-            })}
+        <TreeItem label="Main" nodeId="main">
+            {data.map((val, key) => {
+            return (
+                <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
+                    {generateNums(val).map((val, key) => {
+                        return(
+                            <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"" + val}></TreeItem>
+                        );
+                    })}
+                </TreeItem>
+            );
+            })
+            }
         </TreeItem>
-      );
-      })
-    }
     </TreeView>
   );
 }
