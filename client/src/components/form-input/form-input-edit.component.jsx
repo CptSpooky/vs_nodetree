@@ -42,6 +42,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             min="1"
             max="15"
             value={qty}
+            className={qtyValid ? "" : "err" }
             onChange={(e) => onChangeSetQty(e.target.value)}
             />
             <label>Min:</label>

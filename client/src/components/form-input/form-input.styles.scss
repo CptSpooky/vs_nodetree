@@ -19,16 +19,6 @@ input {
     width: 25%;
     height: 60%;
     justify-content: space-between;
-
-   // position: relative;
-
-    //transition: all 5s ease-in-out;
-    // &:target {
-    //   display: flex;
-    //   visibility: visible;
-    //   opacity: 1;
-    //   height: auto;
-    // }
   
     h2 {
       margin-top: 0;
@@ -62,4 +52,8 @@ input {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.err {
+  border-color: red;
 }
