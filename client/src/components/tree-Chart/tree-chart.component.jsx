@@ -7,13 +7,13 @@ import TreeItem from '@material-ui/lab/TreeItem';
 
 const useStyles = makeStyles({
   root: {
-    height: 240,
+    height: "auto",
     flexGrow: 1,
-    maxWidth: 400,
+    maxWidth: 300,
   },
 });
 
-const TreeChart = ({data, selectedId}) => {
+const TreeChart = ({data, selectedId, selected}) => {
   const classes = useStyles();
   if (typeof data === 'undefined') {return (<div></div>)}
 
@@ -22,6 +22,7 @@ const TreeChart = ({data, selectedId}) => {
       className={classes.root}
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
+      selected={selected}
     >
     {data.map((val, key) => {
       return (

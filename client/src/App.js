@@ -3,7 +3,6 @@ import "./App.css";
 import Axios from 'axios';
 import TreeChart from './components/tree-Chart/tree-chart.component';
 import Interface from './components/interface/interface.component';
-import FormInputAdd from './components/form-input/form-input-add.component';
 import FormInputEdit from './components/form-input/form-input-edit.component';
 import './app.styles.scss';
 //import { inspect } from 'util';
@@ -25,10 +24,11 @@ function App() {
   /* Get factories on initial load */
   useEffect(() => {
     getFactory();
-  }, [name, qty, min, max, factoryList]);
+  }, []);
 
   /* Get factories */
   const getFactory = () => {
+    console.log("get factory");
     Axios.get('http://localhost:3001/factories').then((response) => { 
       setFactoryList(response.data);
     });
@@ -36,27 +36,34 @@ function App() {
 
   /* Add Factory */
   const addFactory = () => {
+    console.log(currentId);
+    const newName = "New Factory";
+    const newQty = 6;
+    const newMin = 0;
+    const newMax = 100;
+
+    /* Set default for new factory */
+    setName(newName);
+    setQty(newQty);
+    setMin(newMin);
+    setMax(newMax);
+
     Axios.post('http://localhost:3001/create', {
-      name: name, 
-      qty: qty, 
-      min: min, 
-      max: max
-    }).then(() => { 
-      setFactoryList([
-        ...factoryList,
-        {
-          name: name, 
-          qty: qty, 
-          min: min, 
-          max: max
-        }
-      ]);
+      name: newName, 
+      qty: newQty, 
+      min: newMin, 
+      max: newMax
+    }).then((response) => { 
+      const newId = response.data;
+      setCurrentId(newId);
+      getFactory();
     });
   }
 
   /* Delete factory */
   const deleteFactory = () => {
     Axios.delete(`http://localhost:3001/factories/${currentId}`);
+    getFactory();
   }
 
   /* Update factory */
@@ -68,13 +75,7 @@ function App() {
       min: min, 
       max: max
     }).then(() => { 
-      let factory = findFactory(currentId);
-      factory.name = name;
-      factory.qty = qty;
-      factory.min = min;
-      factory.max = max;
-
-      setFactoryList(factoryList);
+      getFactory();
     });
   }
 
@@ -100,19 +101,18 @@ function App() {
 
   return (
       <div className="container">
-        <Interface 
-          deleteFactory = {deleteFactory}
-        />
-        <TreeChart data = {factoryList} 
-        selectedId = {value => {applyCurrentId(value)}}        
-        />
-        <FormInputAdd 
-          addFactory = {addFactory}
-          onChangeSetName = {value => setName(value)}
-          onChangeSetQty = {value => setQty(value)}
-          onChangeSetMin = {value => setMin(value)}
-          onChangeSetMax = {value => setMax(value)}
-        />
+        <div className ="factory-interface">
+          <div className="factory-list">
+            <TreeChart data = {factoryList} 
+              selectedId = {value => {applyCurrentId(value)}} 
+              selected = {"" + currentId}       
+            />
+          </div>
+          <Interface 
+              addFactory = {addFactory}
+              deleteFactory = {deleteFactory}
+          />
+        </div>  
         <FormInputEdit 
           onChangeSetName = {value => setName(value)}
           onChangeSetQty = {value => setQty(value)}

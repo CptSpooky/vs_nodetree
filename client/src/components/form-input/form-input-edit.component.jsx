@@ -1,16 +1,26 @@
 import React from 'react';
 import './form-input.styles.scss';
+import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/CloseRounded';
+import Button from '@material-ui/core/Button';
+import RefreshIcon from '@material-ui/icons/RefreshRounded';
+import SaveIcon from '@material-ui/icons/Save';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
+
 
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max }) => {
+  const classes = useStyles();
+
   return(
       <div id="popupedit" className="popup">
-        <a className="close" href="/#">
-          <IconButton aria-label="add">
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        </a>
+        <h2>Factory Settings</h2>
+        <p>To edit a factory, select it from the tree and update its settings below.</p>
+        
         <div className="form-input">
             <label>Name:</label>
             <input 
@@ -34,7 +44,27 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             onChange={(e) => onChangeSetMax(e.target.value)}
             />
         </div>
-        <button onClick={updateFactory}>Update Factory</button>
+        <div className="factory-setting-buttons">
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            className={classes.button}
+            startIcon={<SaveIcon />}
+            onClick={updateFactory}
+          >
+            Save
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            className={classes.button}
+            startIcon={<RefreshIcon />}
+          >
+            Regenerate
+          </Button>
+        </div>
       </div>
   );
 }
