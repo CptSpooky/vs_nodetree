@@ -78,6 +78,14 @@ function App() {
     });
   }
 
+  /* Regen seed */
+  const regenFactorySeed = () => {
+    Axios.put(`https://pure-forest-64023.herokuapp.com/factories/regen/${currentId}`, {})
+    .then(() => { 
+      rebuildFactoryList();
+    });
+  }
+
   /* Find selected factory */
   const findFactory = (id) => {
     for(let i = 0; i < factoryList.length; i++){
@@ -104,7 +112,7 @@ function App() {
           <div className="factory-list">
             <TreeChart data = {factoryList} 
               selectedId = {value => {applyCurrentId(value)}} 
-              selected = {"" + currentId}       
+              selected = {"" + currentId}    
             />
           </div>
           <Interface 
@@ -118,6 +126,7 @@ function App() {
           onChangeSetMin = {value => setMin(value)}
           onChangeSetMax = {value => setMax(value)}
           updateFactory = {updateFactory}
+          onRegenFactorySeed = {regenFactorySeed}
           currentId = {currentId}
           factoryList = {factoryList}
           name = {name}

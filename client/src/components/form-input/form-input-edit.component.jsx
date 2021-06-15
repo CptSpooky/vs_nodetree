@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max }) => {
+const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, onRegenFactorySeed }) => {
   const classes = useStyles();
 
   return(
@@ -61,6 +61,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             size="small"
             className={classes.button}
             startIcon={<RefreshIcon />}
+            onClick={onRegenFactorySeed}
           >
             Regenerate
           </Button>

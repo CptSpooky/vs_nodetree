@@ -115,6 +115,26 @@ app.put('/factories/:id', (req, res) => {
     );    
 });
 
+/* Regenerate factory children */
+app.put('/factories/regen/:id', (req, res) => {
+    /* Create seed for random number generation*/
+    const gentime = Math.floor(Date.now() / 1000) % 0xffffff;
+    const id = req.params.id;
+
+
+    db.query(
+        'UPDATE factories SET gentime = ? WHERE id = ?', 
+        [gentime, id], 
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Values updated");
+            }
+        }
+    );    
+});
+
 db.connect();
 
 app.listen(PORT, () => {

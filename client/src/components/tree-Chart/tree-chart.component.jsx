@@ -4,6 +4,7 @@ import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
+const seedrandom = require('seedrandom');
 
 const useStyles = makeStyles({
   root: {
@@ -13,10 +14,14 @@ const useStyles = makeStyles({
   },
 });
 
+/* Generate random nums */
 const generateNums = (factory) => {
+    /* Random number generator seed */
+    let rng = seedrandom(factory.gentime);
+
     var nums = [];
     for(let i = 0; i < factory.qty; i++){
-        nums.push(Math.floor(Math.random() * (factory.max - factory.min)) + factory.min);
+        nums.push(Math.floor(rng() * (factory.max - factory.min)) + factory.min);
     }
     return nums;
 }
