@@ -20,13 +20,19 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+const db;
 /* Database connection*/
-const db = mysql.createConnection({
-    user: process.env.USERNAME,
-    host: process.env.HOST,
-    password: process.env.SQLPASS,
-    database: process.env.DATABASE
-});
+if (process.env.JAWSDB_URL) {
+    db = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    db = mysql.createConnection({
+        host: 'localhost',
+        user: process.env.USERNAME,
+        host: process.env.HOST,
+        password: process.env.SQLPASS,
+        database: process.env.DATABASE
+    });
+}
 
 /* Create a factory */
 app.post('/create', (req, res) => {
@@ -106,6 +112,7 @@ app.put('/factories/:id', (req, res) => {
     );    
 });
 
+db.connect();
 
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
