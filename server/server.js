@@ -55,15 +55,15 @@ app.post('/create', (req, res) => {
 });
 
 /* Get all factories */
-app.get('/', (req, res) => {
-    db.query('SELECT * FROM factories', (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
-});
+// app.get('/', (req, res) => {
+//     db.query('SELECT * FROM factories', (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.send(result);
+//         }
+//     });
+// });
 
 /* Get all factories */
 app.get('/factories', (req, res) => {
