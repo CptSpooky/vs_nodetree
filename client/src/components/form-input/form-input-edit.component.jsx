@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
 
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, onRegenFactorySeed, selectedId }) => {
   const classes = useStyles();
-  // if(selectedId == ""){
-  //   return (
-  //     <div id="popupedit" className="popup">
-  //     <p>To edit a factory, select it from the tree.</p>
-  //     </div>
-  //   );
-  // }
+  if(selectedId == ""){
+    return (
+      <div id="popupedit" className="popup">
+      <p>To edit a factory, select it from the tree.</p>
+      </div>
+    );
+  }
   return(
       <div id="popupedit" className="popup">
         <h2>Factory Settings</h2>
