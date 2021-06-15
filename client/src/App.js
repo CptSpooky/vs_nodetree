@@ -29,7 +29,7 @@ function App() {
   /* Get factories */
   const getFactory = () => {
     console.log("get factory");
-    Axios.get('http://localhost:3001/factories').then((response) => { 
+    Axios.get('https://pure-forest-64023.herokuapp.com/factories').then((response) => { 
       setFactoryList(response.data);
     });
   }
@@ -48,7 +48,7 @@ function App() {
     setMin(newMin);
     setMax(newMax);
 
-    Axios.post('http://localhost:3001/create', {
+    Axios.post('https://pure-forest-64023.herokuapp.com/create', {
       name: newName, 
       qty: newQty, 
       min: newMin, 
@@ -62,13 +62,13 @@ function App() {
 
   /* Delete factory */
   const deleteFactory = () => {
-    Axios.delete(`http://localhost:3001/factories/${currentId}`);
+    Axios.delete(`https://pure-forest-64023.herokuapp.com/factories/${currentId}`);
     getFactory();
   }
 
   /* Update factory */
   const updateFactory = () => {
-    Axios.put(`http://localhost:3001/factories/${currentId}`, 
+    Axios.put(`https://pure-forest-64023.herokuapp.com/factories/${currentId}`, 
     {
       name: name, 
       qty: qty, 
