@@ -138,6 +138,7 @@ function App() {
           qty = {qty}
           min = {min}
           max = {max}
+          selectedId = {currentId}
         />
       </div>
   );
