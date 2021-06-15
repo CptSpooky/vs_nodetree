@@ -125,6 +125,7 @@ function App() {
               addFactory = {addFactory}
               deleteFactory = {deleteFactory}
               onRegenFactorySeed = {regenFactorySeed}
+              selectedId = {currentId}
           />
         </div>  
         <FormInputEdit 

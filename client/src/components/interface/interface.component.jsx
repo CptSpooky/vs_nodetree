@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed }) => {
+const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed, selectedId }) => {
   const classes = useStyles();
 
   return(
@@ -35,6 +35,7 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed }) => {
         variant="contained"
         color="secondary"
         className={classes.button}
+        diabled={selectedId == "" ? true : false}
         startIcon={<DeleteIcon />}
         onClick={deleteFactory}
         size="small"
@@ -47,6 +48,7 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed }) => {
             color="primary"
             size="small"
             className={classes.button}
+            diabled={selectedId == "" ? true : false}
             startIcon={<RefreshIcon />}
             onClick={onRegenFactorySeed}
           >
