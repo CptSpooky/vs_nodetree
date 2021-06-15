@@ -56,7 +56,8 @@ input {
 
 .err {
   border-color: red;
+  background-color: pink;
   :focus {
-    border-color: red;
+    border-color: red !important;
   }
 }
