@@ -13,10 +13,10 @@ const useStyles = makeStyles({
   },
 });
 
-const generateNums = () => {
+const generateNums = (factory) => {
     var nums = [];
-    for(let i = 0; i < 5; i++){
-        nums.push(i);
+    for(let i = 0; i < factory.qty; i++){
+        nums.push(Math.floor(Math.random() * (factory.max - factory.min)) + factory.min);
     }
     return nums;
 }
@@ -35,7 +35,7 @@ const TreeChart = ({data, selectedId, selected}) => {
     {data.map((val, key) => {
       return (
         <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
-            {generateNums().map((val, key) => {
+            {generateNums(val).map((val, key) => {
                 return(
                     <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"val " + val}></TreeItem>
                 );
