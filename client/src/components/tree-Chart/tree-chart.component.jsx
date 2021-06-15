@@ -14,6 +14,11 @@ const useStyles = makeStyles({
   },
 });
 
+/* Generate an integer between min (inclusive) and max (inclusive) */
+const randBetween = (rng, min, max) => {
+    return Math.floor(rng() * (max - min + 1)) + min;
+}
+
 /* Generate random nums */
 const generateNums = (factory) => {
     /* Random number generator seed */
@@ -21,7 +26,7 @@ const generateNums = (factory) => {
 
     var nums = [];
     for(let i = 0; i < factory.qty; i++){
-        nums.push(Math.floor(rng() * (factory.max - factory.min)) + factory.min);
+        nums.push(randBetween(rng, factory.min, factory.max));
     }
     return nums;
 }
