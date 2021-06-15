@@ -20,6 +20,12 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+// Express serve up index.html file
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+});
+
 let db = null;
 /* Database connection*/
 if (process.env.JAWSDB_URL) {
@@ -55,15 +61,15 @@ app.post('/create', (req, res) => {
 });
 
 /* Get all factories */
-// app.get('/', (req, res) => {
-//     db.query('SELECT * FROM factories', (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.send(result);
-//         }
-//     });
-// });
+app.get('/', (req, res) => {
+    db.query('SELECT * FROM factories', (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
 
 /* Get all factories */
 app.get('/factories', (req, res) => {
