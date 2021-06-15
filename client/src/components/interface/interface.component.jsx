@@ -35,7 +35,7 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed, selectedId }
         variant="contained"
         color="secondary"
         className={classes.button}
-        diabled={selectedId == "" ? true : false}
+        disabled={selectedId == "" ? true : false}
         startIcon={<DeleteIcon />}
         onClick={deleteFactory}
         size="small"
@@ -48,7 +48,7 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed, selectedId }
             color="primary"
             size="small"
             className={classes.button}
-            diabled={selectedId == "" ? true : false}
+            disabled={selectedId == "" ? true : false}
             startIcon={<RefreshIcon />}
             onClick={onRegenFactorySeed}
           >
