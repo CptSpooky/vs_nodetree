@@ -23,10 +23,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Express serve up index.html file
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
+// const path = require('path');
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
 
 let db = null;
 /* Database connection*/
@@ -74,7 +74,7 @@ app.get('/', (req, res) => {
 });
 
 /* Get all factories */
-app.get('/api/factories', (req, res) => {
+app.get('/factories', (req, res) => {
     db.query('SELECT * FROM factories', (err, result) => {
         if (err) {
             console.log(err);
