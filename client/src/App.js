@@ -62,6 +62,7 @@ function App() {
   /* Delete factory */
   const deleteFactory = () => {
     Axios.delete(`https://pure-forest-64023.herokuapp.com/factories/${currentId}`);
+    setCurrentId("");
     rebuildFactoryList();
   }
 
