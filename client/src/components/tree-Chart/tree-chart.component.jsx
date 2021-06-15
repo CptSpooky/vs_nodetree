@@ -13,6 +13,14 @@ const useStyles = makeStyles({
   },
 });
 
+const generateNums = () => {
+    var nums = [];
+    for(let i = 0; i < 5; i++){
+        nums.push(i);
+    }
+    return nums;
+}
+
 const TreeChart = ({data, selectedId, selected}) => {
   const classes = useStyles();
   if (typeof data === 'undefined') {return (<div></div>)}
@@ -27,7 +35,9 @@ const TreeChart = ({data, selectedId, selected}) => {
     {data.map((val, key) => {
       return (
         <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
-          <TreeItem nodeId={"" + val.id + "-" + 1} label="test"></TreeItem>
+            {generateNums().map((val, key) => {
+                <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"test" + val}></TreeItem>
+            })}
         </TreeItem>
       );
       })

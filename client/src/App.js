@@ -23,12 +23,11 @@ function App() {
 
   /* Get factories on initial load */
   useEffect(() => {
-    getFactory();
+    rebuildFactoryList();
   }, []);
 
-  /* Get factories */
-  const getFactory = () => {
-    console.log("get factory");
+  /* Rebuild factory list */
+  const rebuildFactoryList = () => {
     Axios.get('https://pure-forest-64023.herokuapp.com/factories').then((response) => { 
       setFactoryList(response.data);
     });
@@ -56,14 +55,14 @@ function App() {
     }).then((response) => { 
       const newId = response.data;
       setCurrentId(newId);
-      getFactory();
+      rebuildFactoryList();
     });
   }
 
   /* Delete factory */
   const deleteFactory = () => {
     Axios.delete(`https://pure-forest-64023.herokuapp.com/factories/${currentId}`);
-    getFactory();
+    rebuildFactoryList();
   }
 
   /* Update factory */
@@ -75,7 +74,7 @@ function App() {
       min: min, 
       max: max
     }).then(() => { 
-      getFactory();
+      rebuildFactoryList();
     });
   }
 
