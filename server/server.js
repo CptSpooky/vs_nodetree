@@ -26,10 +26,9 @@ if (process.env.JAWSDB_URL) {
     db = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
     db = mysql.createConnection({
-        host: 'localhost',
-        user: process.env.USERNAME,
+        user: process.env.USER,
         host: process.env.HOST,
-        password: process.env.SQLPASS,
+        password: process.env.PASS,
         database: process.env.DATABASE
     });
 }
