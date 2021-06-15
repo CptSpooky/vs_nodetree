@@ -25,8 +25,8 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
   /* Validation conditions */
   let qtyValid = qty > 0 && qty <= 15;
   let nameValid = name.length >= 1 && name.length <= 30;
-  let minValid = min > -100000000 && min < 100000000 && min != "";
-  let maxValid = min > -100000000 && max < 100000000 && min < max && max != "";
+  let minValid = min > -100000000 && min < 100000000 && min !== "";
+  let maxValid = min > -100000000 && max < 100000000 && min < max && max !== "";
   let allValid = qtyValid && nameValid && minValid && maxValid;
 
   return(
