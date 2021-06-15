@@ -32,15 +32,16 @@ app.post('/create', (req, res) => {
     const qty = req.body.qty;
     const max = req.body.max;
     const min = req.body.min;
+    const gentime = Math.floor(Date.now() / 1000) % 0xffffff;
 
     db.query(
-        'INSERT INTO factories (name, qty, max, min) VALUES (?,?,?,?)', 
-        [name, qty, max, min], 
+        'INSERT INTO factories (name, qty, max, min, gentime) VALUES (?,?,?,?,?)', 
+        [name, qty, max, min, gentime], 
         (err, result) => {
             if (err) {
                 console.log(err);
             } else {
-                /* Grab the Id of inserted operation*/
+                /* Id of inserted operation */
                 res.send("" + result.insertId);
             }
         }

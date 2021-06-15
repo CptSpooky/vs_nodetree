@@ -42,7 +42,7 @@ const TreeChart = ({data, selectedId, selected}) => {
         <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
             {generateNums(val).map((val, key) => {
                 return(
-                    <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"val " + val}></TreeItem>
+                    <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"value " + val}></TreeItem>
                 );
             })}
         </TreeItem>
