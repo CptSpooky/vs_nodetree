@@ -23,7 +23,11 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
     );
   }
 
+  /* Validation conditions */
   let qtyValid = qty > 0 && qty <= 15;
+  let nameValid = name.length >= 1 && name.length <= 30;
+  let minValid = min > -100000000 && min < 100000000;
+  let maxValid = min > -100000000 && max < 100000000 && min < max;
 
   return(
       <div id="popupedit" className="popup">
@@ -31,14 +35,19 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
         <p>To edit a factory, select it from the tree and update its settings below.</p>
         
         <div className="form-input">
-            <label>Name:</label>
+            <div className="label-cage">
+              <label>Name:</label>
+              {nameValid ? "" : <div className="errMsg">invalid name</div>}
+            </div>
             <input 
             type="text" 
+            maxLength="30"
             value={name}
+            className={nameValid ? "" : "err" }
             onChange={(e) => onChangeSetName(e.target.value)}
             />
             <div className="label-cage">
-              <label>{qtyValid ? "Qty:" : "QtyX:" }</label>
+              <label>Qty:</label>
               {qtyValid ? "" : <div className="errMsg">value out of range</div>}
             </div>
             <input type="number"
@@ -48,19 +57,27 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             className={qtyValid ? "" : "err" }
             onChange={(e) => onChangeSetQty(e.target.value)}
             />
-            <label>Min:</label>
+            <div className="label-cage">
+              <label>Min:</label>
+              {minValid ? "" : <div className="errMsg">value out of range</div>}
+            </div>
             <input type="number"
             min="-100000000"
             max="100000000"
+            className={minValid ? "" : "err" }
             value={min}
             onChange={(e) => onChangeSetMin(e.target.value)}
             />
-            <label>Max:</label>
+            <div className="label-cage">
+              <label>Max:</label>
+              {maxValid ? "" : <div className="errMsg">value out of range</div>}
+            </div>
             <input type="number"
               min="-100000000"
               max="100000000"
-            value={max}
-            onChange={(e) => onChangeSetMax(e.target.value)}
+              className={maxValid ? "" : "err" }
+              value={max}
+              onChange={(e) => onChangeSetMax(e.target.value)}
             />
         </div>
         <div className="factory-setting-buttons">

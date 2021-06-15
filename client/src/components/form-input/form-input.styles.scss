@@ -55,15 +55,12 @@ input {
 }
 
 .err {
-  border-color: red;
+  border-color: rgb(169, 28, 26);
   background-color: pink;
-  :focus {
-    border-color: red !important;
-  }
 }
 
 .errMsg {
-  font-size: 12px;
+  font-size: .8em;
   color: red;
 }
 
