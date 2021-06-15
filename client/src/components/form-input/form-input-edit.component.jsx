@@ -37,7 +37,10 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             value={name}
             onChange={(e) => onChangeSetName(e.target.value)}
             />
-            <label>{qtyValid ? "Qty:" : "QtyX:" }</label>
+            <div className="label-cage">
+              <label>{qtyValid ? "Qty:" : "QtyX:" }</label>
+              {qtyValid ? "" : <div className="errMsg">value out of range</div>}
+            </div>
             <input type="number"
             min="1"
             max="15"
