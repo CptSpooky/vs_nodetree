@@ -22,6 +22,9 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
       </div>
     );
   }
+
+  let qtyValid = qty > 0 && qty <= 15;
+
   return(
       <div id="popupedit" className="popup">
         <h2>Factory Settings</h2>
@@ -34,7 +37,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             value={name}
             onChange={(e) => onChangeSetName(e.target.value)}
             />
-            <label>Qty:</label>
+            <label>{qtyValid ? "Qty:" : "QtyX:" }</label>
             <input type="number"
             min="1"
             max="15"
