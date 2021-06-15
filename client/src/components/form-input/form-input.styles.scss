@@ -1,0 +1,21 @@
+input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px;
+}
+
+.form-box {
+    display: flex;
+    align-items: flex-end;
+    border: solid;
+    border-width: 1px;
+    padding: 15px;
+    margin: 15px;
+    flex-direction: column;
+}
