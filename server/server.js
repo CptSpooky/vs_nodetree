@@ -95,12 +95,15 @@ app.delete('/factories/:id', (req, res) => {
     });
 });
 
+/* Clamp number between two values for validation */
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
 /* Update a factory */
 app.put('/factories/:id', (req, res) => {
     const name = req.body.name;
-    const qty = req.body.qty;
-    const max = req.body.max;
-    const min = req.body.min;
+    const qty = clamp(req.body.qty, 1, 15);
+    const max = clamp(req.body.max, -100000000, 100000000);
+    const min = clamp(req.body.min, -100000000, 100000000);
     const id = req.params.id;
 
     db.query(

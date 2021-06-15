@@ -30,16 +30,22 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             />
             <label>Qty:</label>
             <input type="number"
+            min="1"
+            max="15"
             value={qty}
             onChange={(e) => onChangeSetQty(e.target.value)}
             />
             <label>Min:</label>
             <input type="number"
+            min="-100000000"
+            max="100000000"
             value={min}
             onChange={(e) => onChangeSetMin(e.target.value)}
             />
             <label>Max:</label>
             <input type="number"
+              min="-100000000"
+              max="100000000"
             value={max}
             onChange={(e) => onChangeSetMax(e.target.value)}
             />

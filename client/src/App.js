@@ -67,6 +67,10 @@ function App() {
 
   /* Update factory */
   const updateFactory = () => {
+    if (name == "") {
+      name = "Nameless Factory"
+    }
+
     Axios.put(`https://pure-forest-64023.herokuapp.com/factories/${currentId}`, 
     {
       name: name, 
