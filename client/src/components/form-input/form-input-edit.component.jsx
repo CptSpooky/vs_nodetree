@@ -28,6 +28,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
   let nameValid = name.length >= 1 && name.length <= 30;
   let minValid = min > -100000000 && min < 100000000 && min != "";
   let maxValid = min > -100000000 && max < 100000000 && min < max && max != "";
+  let allValid = qtyValid && nameValid && minValid && maxValid;
 
   return(
       <div id="popupedit" className="popup">
@@ -85,6 +86,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             variant="contained"
             color="primary"
             size="small"
+            disabled={allValid ? "false" : "true"}
             className={classes.button}
             startIcon={<SaveIcon />}
             onClick={updateFactory}
