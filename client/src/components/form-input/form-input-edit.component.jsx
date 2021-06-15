@@ -3,7 +3,6 @@ import './form-input.styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import RefreshIcon from '@material-ui/icons/RefreshRounded';
 import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, onRegenFactorySeed, selectedId }) => {
+const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, selectedId }) => {
   const classes = useStyles();
   if(selectedId == ""){
     return (
@@ -93,16 +92,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
           >
             Save
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            className={classes.button}
-            startIcon={<RefreshIcon />}
-            onClick={onRegenFactorySeed}
-          >
-            Regenerate
-          </Button>
+          
         </div>
       </div>
   );

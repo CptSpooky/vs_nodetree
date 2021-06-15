@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/AddCircleOutlineRounded';
+import RefreshIcon from '@material-ui/icons/RefreshRounded';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Interface = ({ addFactory, deleteFactory }) => {
+const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed }) => {
   const classes = useStyles();
 
   return(
@@ -40,6 +41,17 @@ const Interface = ({ addFactory, deleteFactory }) => {
       >
         Delete
       </Button>
+
+      <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            className={classes.button}
+            startIcon={<RefreshIcon />}
+            onClick={onRegenFactorySeed}
+          >
+            Regenerate
+        </Button>
      
     </div>
   );

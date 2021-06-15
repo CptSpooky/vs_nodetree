@@ -124,6 +124,7 @@ function App() {
           <Interface 
               addFactory = {addFactory}
               deleteFactory = {deleteFactory}
+              onRegenFactorySeed = {regenFactorySeed}
           />
         </div>  
         <FormInputEdit 
@@ -132,7 +133,6 @@ function App() {
           onChangeSetMin = {value => setMin(value)}
           onChangeSetMax = {value => setMax(value)}
           updateFactory = {updateFactory}
-          onRegenFactorySeed = {regenFactorySeed}
           currentId = {currentId}
           factoryList = {factoryList}
           name = {name}
