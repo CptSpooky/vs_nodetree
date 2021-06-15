@@ -29,7 +29,7 @@ function App() {
   /* Get factories */
   const getFactory = () => {
     console.log("get factory");
-    Axios.get('/api/factories').then((response) => { 
+    Axios.get('https://pure-forest-64023.herokuapp.com/api/factories').then((response) => { 
       setFactoryList(response.data);
     });
   }
