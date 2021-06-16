@@ -7,26 +7,21 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 import Dice from '@material-ui/icons/CasinoOutlined';
 import MainIcon from '@material-ui/icons/CenterFocusStrongOutlined';
-const seedrandom = require('seedrandom');
 
+const seedrandom = require('seedrandom');
 const useStyles = makeStyles({
   root: {
     height: "auto",
     flexGrow: 1,
     margin: "1em",
     color: "white",
-    // "&.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label": {
-    //     backgroundColor: "rgba(216,1,105,.7) !important",
-    //     background: "rgba(216,1,105,.7) !important",
-    //     color: "rgba(216,1,105,.7) !important"
-    //   }
-  },
+  }
 });
 
 const iconStyles = makeStyles({
     root: {
       marginRight: "5px"
-    },
+    }
   });
 
 /* Generate an integer between min (inclusive) and max (inclusive) */

@@ -1,10 +1,9 @@
 import React from 'react';
 import './interface.styles.scss';
 import '../form-input/form-input.styles.scss';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import AddIcon from '@material-ui/icons/AddCircleOutlineRounded';
 import RefreshIcon from '@material-ui/icons/RefreshRounded';
 
@@ -19,7 +18,6 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed, selectedId }
 
   return(
     <div className="interface-card">
-
       <Button
         variant="contained"
         color="primary"
@@ -44,17 +42,16 @@ const Interface = ({ addFactory, deleteFactory, onRegenFactorySeed, selectedId }
       </Button>
 
       <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            className={classes.button}
-            disabled={selectedId == "" ? true : false}
-            startIcon={<RefreshIcon />}
-            onClick={onRegenFactorySeed}
-          >
-            Regenerate
-        </Button>
-     
+        variant="contained"
+        color="primary"
+        size="small"
+        className={classes.button}
+        disabled={selectedId == "" ? true : false}
+        startIcon={<RefreshIcon />}
+        onClick={onRegenFactorySeed}
+        >
+        Regenerate
+      </Button>
     </div>
   );
 }

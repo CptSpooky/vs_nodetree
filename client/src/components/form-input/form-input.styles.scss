@@ -89,6 +89,21 @@ label {
   display: block !important;
 }
 
+.d-flex-justify-align {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.initalText{
+  font-size: 20px;
+  color: $accent-lghtpurple;
+  font-weight: medium;
+  text-align: center;
+}
+
 @media only screen and (max-width: 600px) {
   .popup {
     width: 100%;

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './form-input.styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import CheckIcon from '@material-ui/icons/CheckCircleRounded';
+import LeftArrow from '@material-ui/icons/SubdirectoryArrowLeftOutlined';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -16,11 +17,16 @@ const useStyles = makeStyles((theme) => ({
 
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, selectedId }) => {
   const classes = useStyles();
+  const [saveClicked, setSaveClicked] = useState(false);
+
 
   if(selectedId == ""){
     return (
       <div id="popupedit" className="popup">
-      <p>To edit a factory, select it from the tree.</p>
+        <div className="d-flex-justify-align">
+          <p className="initalText">Add a factory or select one from the tree to edit.</p>
+          <LeftArrow />
+        </div>
       </div>
     );
   }
@@ -39,66 +45,70 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
         <hr />
         
         <div className="form-input">
-            <div className="label-cage">
-              <label>Name</label>
-              {nameValid ? "" : <div className="errMsg">invalid name</div>}
-            </div>
-            <input 
+          <div className="label-cage">
+            <label>Name</label>
+            {nameValid ? "" : <div className="errMsg">invalid name</div>}
+          </div>
+          <input 
             type="text" 
             maxLength="30"
             value={name}
             className={nameValid ? "" : "err" }
             onChange={(e) => onChangeSetName(e.target.value)}
-            />
-            <div className="label-cage">
-              <label>Qty</label>
-              {qtyValid ? "" : <div className="errMsg">value out of range</div>}
-            </div>
-            <input type="number"
+          />
+
+          <div className="label-cage">
+            <label>Qty</label>
+            {qtyValid ? "" : <div className="errMsg">value out of range</div>}
+          </div>
+          <input type="number"
             min="1"
             max="15"
             value={qty}
             className={qtyValid ? "" : "err" }
             onChange={(e) => onChangeSetQty(e.target.value)}
-            />
-            <div className="label-cage">
-              <label>Min</label>
-              {minValid ? "" : <div className="errMsg">value out of range</div>}
-            </div>
-            <input type="number"
+          />
+
+          <div className="label-cage">
+            <label>Min</label>
+            {minValid ? "" : <div className="errMsg">value out of range</div>}
+          </div>
+          <input type="number"
             min="-100000000"
             max="100000000"
             className={minValid ? "" : "err" }
             value={min}
             onChange={(e) => onChangeSetMin(e.target.value)}
-            />
-            <div className="label-cage">
-              <label>Max</label>
-              {maxValid ? "" : <div className="errMsg">value out of range</div>}
-            </div>
-            <input type="number"
-              min="-100000000"
-              max="100000000"
-              className={maxValid ? "" : "err" }
-              value={max}
-              onChange={(e) => onChangeSetMax(e.target.value)}
-            />
-        </div>
-        <div className="factory-setting-buttons">
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            disabled={allValid ? false : true}
-            className={classes.button}
-            startIcon={<SaveIcon />}
-            onClick={updateFactory}
-          >
-            Save
-          </Button>
-          <CheckIcon className={"" ? setTimeout(()=>{return "visible"}, 500) : "hidden" } className={classes.check} />
-        </div>
+          />
+
+          <div className="label-cage">
+            <label>Max</label>
+            {maxValid ? "" : <div className="errMsg">value out of range</div>}
+          </div>
+          <input type="number"
+            min="-100000000"
+            max="100000000"
+            className={maxValid ? "" : "err" }
+            value={max}
+            onChange={(e) => onChangeSetMax(e.target.value)}
+          />
       </div>
+      
+      <div className="factory-setting-buttons">
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          disabled={allValid ? false : true}
+          className={classes.button}
+          startIcon={<SaveIcon />}
+          onClick={updateFactory, setSaveClicked(true)}
+        >
+          Save
+        </Button>
+        <CheckIcon className={saveClicked ? setTimeout(()=>{return "visible"}, 500) : "hidden" } className={classes.check} />
+      </div>
+    </div>
   );
 }
 
