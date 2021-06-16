@@ -4,13 +4,24 @@ import Axios from 'axios';
 import TreeChart from './components/tree-Chart/tree-chart.component';
 import Interface from './components/interface/interface.component';
 import FormInputEdit from './components/form-input/form-input-edit.component';
+import { makeStyles } from '@material-ui/core/styles';
+import BottomNav from '@material-ui/core/BottomNavigation';
+import BottomNavAction from '@material-ui/core/BottomNavigationAction';
 import './app.styles.scss';
 //import { inspect } from 'util';
 //const util = require('util');
 
+const navStyles = makeStyles({
+  root: {
+    width: "100%"
+  }
+});
+
 function App() {
+  const classes = navStyles();
 
   /* States */
+  const [navValue, setNavValue] = useState(0);
   const [name, setName] = useState("");
   const [qty, setQty] = useState(0);
   const [min, setMin] = useState(0);
@@ -113,38 +124,48 @@ function App() {
   }
 
   return (
-      <div className="container">
-        <div className ="groupContainer">
-          <div className ="factory-interface">
-            <div className="factory-list">
-              <TreeChart data = {factoryList} 
-                selectedId = {value => {applyCurrentId(value)}} 
-                selected = {"" + currentId}    
-              />
-            </div>
-            <Interface 
-                addFactory = {addFactory}
-                deleteFactory = {deleteFactory}
-                onRegenFactorySeed = {regenFactorySeed}
-                selectedId = {currentId}
+    <div className="container">
+      <div className ="groupContainer">
+        <div className ="factory-interface">
+          <div className="factory-list">
+            <TreeChart data = {factoryList} 
+              selectedId = {value => {applyCurrentId(value)}} 
+              selected = {"" + currentId}    
             />
-          </div>  
-          <FormInputEdit 
-            onChangeSetName = {value => setName(value)}
-            onChangeSetQty = {value => setQty(value)}
-            onChangeSetMin = {value => setMin(value)}
-            onChangeSetMax = {value => setMax(value)}
-            updateFactory = {updateFactory}
-            currentId = {currentId}
-            factoryList = {factoryList}
-            name = {name}
-            qty = {qty}
-            min = {min}
-            max = {max}
-            selectedId = {currentId}
+          </div>
+          <Interface 
+              addFactory = {addFactory}
+              deleteFactory = {deleteFactory}
+              onRegenFactorySeed = {regenFactorySeed}
+              selectedId = {currentId}
           />
-        </div>
+        </div>  
+        <FormInputEdit 
+          onChangeSetName = {value => setName(value)}
+          onChangeSetQty = {value => setQty(value)}
+          onChangeSetMin = {value => setMin(value)}
+          onChangeSetMax = {value => setMax(value)}
+          updateFactory = {updateFactory}
+          currentId = {currentId}
+          factoryList = {factoryList}
+          name = {name}
+          qty = {qty}
+          min = {min}
+          max = {max}
+          selectedId = {currentId}
+        />
       </div>
+      <BottomNav
+        value={navValue}
+        onChange={(event, newValue) => {
+          setNavValue(newValue);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavAction label="Recents" icon={<i class="fa fa-github" />} />
+      </BottomNav>
+    </div>
   );
 }
 
