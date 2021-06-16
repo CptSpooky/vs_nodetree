@@ -1,18 +1,20 @@
 $error-color: #a91c1a;
+$border-color: rgb(212, 212, 212);
+
 @-webkit-keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {border-color: rgba(0, 0, 0, 0);}
+  to {border-color: rgba(0, 0, 0, 1);}
 }
 @keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {border-color: rgba(0, 0, 0, 0);}
+  to {border-color: rgba(0, 0, 0, 1);}
 }
 
 input {
     width: 100% !important;
     margin-bottom: 20px !important;
     padding: 5px !important;
-    border-color: rgb(212, 212, 212) !important;
+    border-color: $border-color !important;
     border-radius: 5px !important;
     border-style: solid !important;
 
@@ -23,7 +25,7 @@ input {
     &:focus {
       -webkit-animation: fadeEffect 1s;
       animation: fadeEffect 1s; /* Fading effect takes 1 second */
-      outline-color: black !important;
+      //outline-color: black !important;
     }
 }
 
