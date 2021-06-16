@@ -1,15 +1,15 @@
 $error-color: #a91c1a;
 
 input {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 5px;
-    border-color: rgb(212, 212, 212);
-    border-radius: 5px;
-    border-style: solid;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+    padding: 5px !important;
+    border-color: rgb(212, 212, 212) !important;
+    border-radius: 5px !important;
+    border-style: solid !important;
 
     &:hover {
-      color: #06D85F;
+      color: #06D85F !important;
     }
 }
 
