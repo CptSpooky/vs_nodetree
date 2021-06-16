@@ -71,31 +71,6 @@ hr {
     background-color: rgba(0,0,0,.3);
 }
 
-.MuiBottomNavigation-root {
-    justify-content: space-between !important;
-    background-color: #0c0223 !important;
-    align-items: center;
-    padding: 1em;
-}
-
-.MuiBottomNavigationAction-wrapper {
-    color: white;
-}
-
-.fa {
-    color: white;
-    font-size: 30px;
-
-    &:hover {
-        color: grey;
-    }
-}
-
-.name {
-    font-size: 1em;
-    color: white;
-}
-
 @media only screen and (max-width: 692px) {
     .factory-interface {
       width: 100%;

@@ -4,24 +4,14 @@ import Axios from 'axios';
 import TreeChart from './components/tree-Chart/tree-chart.component';
 import Interface from './components/interface/interface.component';
 import FormInputEdit from './components/form-input/form-input-edit.component';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNav from '@material-ui/core/BottomNavigation';
-import BottomNavAction from '@material-ui/core/BottomNavigationAction';
+import Nav from './components/nav/nav.component';
 import './app.styles.scss';
 //import { inspect } from 'util';
 //const util = require('util');
 
-const navStyles = makeStyles({
-  root: {
-    width: "100%"
-  }
-});
-
 function App() {
-  const classes = navStyles();
 
   /* States */
-  const [navValue, setNavValue] = useState(0);
   const [name, setName] = useState("");
   const [qty, setQty] = useState(0);
   const [min, setMin] = useState(0);
@@ -125,17 +115,7 @@ function App() {
 
   return (
     <>
-      <BottomNav
-        value={navValue}
-        onChange={(event, newValue) => {
-          setNavValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <div className="name">Danielle Varela</div>
-        <a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank"/>
-      </BottomNav>
+      <Nav/>
       <div className="container">
         <div className ="groupContainer">
           <div className ="factory-interface">
