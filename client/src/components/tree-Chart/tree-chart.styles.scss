@@ -2,11 +2,6 @@
     display: flex;
 }
 
-.MuiTreeView-root {
-    &:hover{
-        background-color: rgba(255,255,255,.5);
-    }
-    &:focus{
-        background-color: rgba(255,255,255,.8);
-    }
+.MuiTreeView-root.mui-selected {
+    background-color: rgba(255,255,255,.8);
 }
