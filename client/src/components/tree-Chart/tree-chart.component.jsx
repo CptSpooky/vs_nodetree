@@ -1,10 +1,12 @@
 import React from 'react';
+import './tree-chart.styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
-import Dice from '@material-ui/icons/CasinoRounded';
+import Dice from '@material-ui/icons/CasinoOutlined';
+import MainIcon from '@material-ui/icons/CenterFocusStrongOutlined';
 const seedrandom = require('seedrandom');
 
 const useStyles = makeStyles({
@@ -43,10 +45,10 @@ const TreeChart = ({data, selectedId, selected}) => {
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}
     >
-        <TreeItem label="Main" nodeId="main">
+        <TreeItem label={<div className="d-flex"><MainIcon />Main</div>} nodeId="main">
             {data.map((val, key) => {
             return (
-                <TreeItem key={key} nodeId={"" + val.id} label={<><Dice />{val.name}</>} onClick={()=> selectedId(val.id)}>
+                <TreeItem key={key} nodeId={"" + val.id} label={<div className="d-flex"><Dice />{val.name}</div>} onClick={()=> selectedId(val.id)}>
                     {generateNums(val).map((val, key) => {
                         return(
                             <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"" + val}></TreeItem>
