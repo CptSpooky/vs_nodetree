@@ -13,7 +13,8 @@ input {
     }
 
     &:focus {
-      color: black !important;
+      border-color: yellow !important;
+      outline-color: black !important;
     }
 }
 
