@@ -4,6 +4,7 @@ import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
+import Dice from '@material-ui/icons/CasinoRounded';
 const seedrandom = require('seedrandom');
 
 const useStyles = makeStyles({
@@ -45,7 +46,7 @@ const TreeChart = ({data, selectedId, selected}) => {
         <TreeItem label="Main" nodeId="main">
             {data.map((val, key) => {
             return (
-                <TreeItem key={key} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
+                <TreeItem key={key} icon={<Dice />} nodeId={"" + val.id} label={val.name} onClick={()=> selectedId(val.id)}>
                     {generateNums(val).map((val, key) => {
                         return(
                             <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"" + val}></TreeItem>

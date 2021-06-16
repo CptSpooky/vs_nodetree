@@ -1,13 +1,12 @@
 $error-color: #a91c1a;
 $border-color: rgb(212, 212, 212);
-
 @-webkit-keyframes fadeEffect {
-  from {border-color: rgba(0, 0, 0, 0);}
-  to {border-color: rgba(0, 0, 0, 1);}
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 @keyframes fadeEffect {
-  from {border-color: rgba(0, 0, 0, 0);}
-  to {border-color: rgba(0, 0, 0, 1);}
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 input {
@@ -25,7 +24,7 @@ input {
     &:focus {
       -webkit-animation: fadeEffect 1s;
       animation: fadeEffect 1s; /* Fading effect takes 1 second */
-      //outline-color: black !important;
+      outline-color: black !important;
     }
 }
 
