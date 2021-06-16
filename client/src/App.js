@@ -13,8 +13,7 @@ import './app.styles.scss';
 
 const navStyles = makeStyles({
   root: {
-    width: "100%",
-    backgroundColor: "0c0223"
+    width: "100%"
   }
 });
 
@@ -167,7 +166,7 @@ function App() {
       className={classes.root}
     >
       <div className="name">Danielle Varela</div>
-      <BottomNavAction label="GitHub" icon={<a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" />} />
+      <BottomNavAction label="GitHub" icon={<a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank" />} />
     </BottomNav>
     </>
   );
