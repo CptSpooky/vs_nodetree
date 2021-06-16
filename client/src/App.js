@@ -124,6 +124,7 @@ function App() {
   }
 
   return (
+    <>
     <div className="container">
       <div className ="groupContainer">
         <div className ="factory-interface">
@@ -155,17 +156,18 @@ function App() {
           selectedId = {currentId}
         />
       </div>
-      <BottomNav
-        value={navValue}
-        onChange={(event, newValue) => {
-          setNavValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavAction label="Recents" icon={<i class="fa fa-github" />} />
-      </BottomNav>
     </div>
+    <BottomNav
+      value={navValue}
+      onChange={(event, newValue) => {
+        setNavValue(newValue);
+      }}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavAction label="Recents" icon={<i class="fa fa-github" />} />
+    </BottomNav>
+    </>
   );
 }
 
