@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
   }
+
+body {
+    margin: 0px !important;
+}
+
 h2 {
     width: 100%;
 }
@@ -22,17 +27,17 @@ p {
     justify-content: center;
     align-items: center;
     background-color: grey;
-    width: 100%;
-    height: 100%;
+    height: 500px;
 }
 
 .factory-interface {
     display: flex;
+    margin-left: 1em;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 60%;
-    width: 30%;
+    height: 100%;
+    width: 50%;
 }
 
 .factory-list {
