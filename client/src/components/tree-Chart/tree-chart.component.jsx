@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   root: {
     height: "auto",
     flexGrow: 1,
-    maxWidth: 300,
+    margin: "1em",
   },
 });
 

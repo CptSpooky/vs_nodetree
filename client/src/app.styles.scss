@@ -49,3 +49,16 @@ p {
     width: 100%;
     height: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+    .factory-interface {
+      width: 100%;
+      height: auto;
+      margin: 1em;
+    }
+
+    .groupContainer {
+        height: auto;
+        flex-wrap: wrap;
+    }
+  }

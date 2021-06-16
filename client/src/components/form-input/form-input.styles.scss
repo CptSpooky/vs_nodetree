@@ -43,7 +43,8 @@ label {
     border: solid;
     border-width: 1px;
     padding: 2rem;
-    margin: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
     flex-direction: column;
     background: #fff;
     border-radius: 10px;
@@ -77,4 +78,11 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .popup {
+    width: 100%;
+    height: auto;
+  }
 }
