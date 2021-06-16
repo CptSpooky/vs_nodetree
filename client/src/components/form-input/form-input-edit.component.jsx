@@ -1,19 +1,22 @@
 import React from 'react';
 import './form-input.styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
+import CheckIcon from '@material-ui/icons/CheckCircleRounded';
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
   },
+  check: {
+    color: "#0da8a4"
+  }
 }));
-
 
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, selectedId }) => {
   const classes = useStyles();
+
   if(selectedId == ""){
     return (
       <div id="popupedit" className="popup">
@@ -93,7 +96,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
           >
             Save
           </Button>
-          
+          <CheckIcon visible={updateFactory ? setTimeout(()=>{return true}, 500) : false } className={classes.check} />
         </div>
       </div>
   );

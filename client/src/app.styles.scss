@@ -22,8 +22,16 @@ p {
     width: 100%;
     font-size: small;
     line-height: 1.5em;
-    margin-bottom: 3em;
     color: grey;
+}
+
+hr {
+    border-color: lightgrey;
+    border-width: thin;
+    width: 100%;
+    opacity: .3;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .container {
