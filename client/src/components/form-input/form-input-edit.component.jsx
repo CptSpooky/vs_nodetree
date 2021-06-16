@@ -25,7 +25,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
       <div id="popupedit" className="popup">
         <div className="d-flex-justify-align">
           <p className="initalText">Add a factory or select one from the tree to edit.</p>
-          <LeftArrow />
+          <LeftArrow fontSize="2.5em" color="#990146" />
         </div>
       </div>
     );
