@@ -96,7 +96,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
           >
             Save
           </Button>
-          <CheckIcon visible={updateFactory ? setTimeout(()=>{return true}, 500) : false } className={classes.check} />
+          <CheckIcon visible={updateFactory ? false : setTimeout(()=>{return true}, 500) } className={classes.check} />
         </div>
       </div>
   );
