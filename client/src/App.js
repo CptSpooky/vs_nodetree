@@ -125,49 +125,49 @@ function App() {
 
   return (
     <>
-    <div className="container">
-      <div className ="groupContainer">
-        <div className ="factory-interface">
-          <div className="factory-list">
-            <TreeChart data = {factoryList} 
-              selectedId = {value => {applyCurrentId(value)}} 
-              selected = {"" + currentId}    
+      <BottomNav
+        value={navValue}
+        onChange={(event, newValue) => {
+          setNavValue(newValue);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <div className="name">Danielle Varela</div>
+        <a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank"/>
+      </BottomNav>
+      <div className="container">
+        <div className ="groupContainer">
+          <div className ="factory-interface">
+            <div className="factory-list">
+              <TreeChart data = {factoryList} 
+                selectedId = {value => {applyCurrentId(value)}} 
+                selected = {"" + currentId}    
+              />
+            </div>
+            <Interface 
+                addFactory = {addFactory}
+                deleteFactory = {deleteFactory}
+                onRegenFactorySeed = {regenFactorySeed}
+                selectedId = {currentId}
             />
-          </div>
-          <Interface 
-              addFactory = {addFactory}
-              deleteFactory = {deleteFactory}
-              onRegenFactorySeed = {regenFactorySeed}
-              selectedId = {currentId}
+          </div>  
+          <FormInputEdit 
+            onChangeSetName = {value => setName(value)}
+            onChangeSetQty = {value => setQty(value)}
+            onChangeSetMin = {value => setMin(value)}
+            onChangeSetMax = {value => setMax(value)}
+            updateFactory = {updateFactory}
+            currentId = {currentId}
+            factoryList = {factoryList}
+            name = {name}
+            qty = {qty}
+            min = {min}
+            max = {max}
+            selectedId = {currentId}
           />
-        </div>  
-        <FormInputEdit 
-          onChangeSetName = {value => setName(value)}
-          onChangeSetQty = {value => setQty(value)}
-          onChangeSetMin = {value => setMin(value)}
-          onChangeSetMax = {value => setMax(value)}
-          updateFactory = {updateFactory}
-          currentId = {currentId}
-          factoryList = {factoryList}
-          name = {name}
-          qty = {qty}
-          min = {min}
-          max = {max}
-          selectedId = {currentId}
-        />
+        </div>
       </div>
-    </div>
-    <BottomNav
-      value={navValue}
-      onChange={(event, newValue) => {
-        setNavValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
-      <div className="name">Danielle Varela</div>
-      <a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank"/>
-    </BottomNav>
     </>
   );
 }
