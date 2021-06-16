@@ -19,9 +19,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+//className={saveClicked ? setTimeout(()=>{return classes.check}, 500) : "hidden" }
+
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, selectedId }) => {
   const classes = useStyles();
-  const [saveClicked, setSaveClicked] = useState(false);
+  //const [saveClicked, setSaveClicked] = useState(false);
 
 
   if(selectedId == ""){
@@ -106,11 +108,11 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
           disabled={allValid ? false : true}
           className={classes.button}
           startIcon={<SaveIcon />}
-          onClick={updateFactory, setSaveClicked(true)}
+          onClick={updateFactory}
         >
           Save
         </Button>
-        <CheckIcon className={saveClicked ? setTimeout(()=>{return classes.check}, 500) : "hidden" } />
+        <CheckIcon />
       </div>
     </div>
   );
