@@ -3,7 +3,6 @@ import './form-input.styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import CheckIcon from '@material-ui/icons/CheckCircleRounded';
 import LeftArrow from '@material-ui/icons/SubdirectoryArrowLeftOutlined';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,12 +18,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-//className={saveClicked ? setTimeout(()=>{return classes.check}, 500) : "hidden" }
-
 const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChangeSetMax, updateFactory, name, qty, min, max, selectedId }) => {
   const classes = useStyles();
-  //const [saveClicked, setSaveClicked] = useState(false);
-
 
   if(selectedId == ""){
     return (
@@ -113,7 +108,6 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
         >
           Save
         </Button>
-        <CheckIcon />
       </div>
     </div>
   );
