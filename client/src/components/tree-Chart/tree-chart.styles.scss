@@ -1,3 +1,7 @@
 .d-flex {
     display: flex;
 }
+
+.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label {
+    background-color: rgba(216,1,105,.7) !important;
+}
