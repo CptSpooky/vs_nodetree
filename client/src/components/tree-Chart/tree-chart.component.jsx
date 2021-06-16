@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     margin: "1em",
     color: "white",
     "&.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label": {
-        background: "rgba(216,1,105,.7) !important"
+        backgroundColor: "rgba(216,1,105,.7) !important"
       }
   },
 });
