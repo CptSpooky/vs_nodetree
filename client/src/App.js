@@ -166,7 +166,7 @@ function App() {
       className={classes.root}
     >
       <div className="name">Danielle Varela</div>
-      <BottomNavAction label="GitHub" icon={<a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank" />} />
+      <a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" target="blank"/>
     </BottomNav>
     </>
   );
