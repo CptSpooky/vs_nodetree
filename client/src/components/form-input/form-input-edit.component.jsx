@@ -33,6 +33,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
       <div id="popupedit" className="popup">
         <h2>Factory Settings</h2>
         <p>To edit a factory, select it from the tree and update its settings below.</p>
+        <hr />
         
         <div className="form-input">
             <div className="label-cage">

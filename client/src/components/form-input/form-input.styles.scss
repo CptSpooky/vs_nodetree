@@ -66,8 +66,7 @@ label {
 }
 
 .err {
-  outline-color: $error-color;
-  background-color: pink;
+  border-color: $error-color !important;
 }
 
 .errMsg {
