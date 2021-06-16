@@ -1,6 +1,21 @@
+$error-color: #a91c1a;
+
 input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-color: rgb(212, 212, 212);
+    border-radius: 5px;
+    border-style: solid;
+
+    &:hover {
+      color: #06D85F;
+    }
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .form-input {
@@ -17,34 +32,12 @@ input {
     flex-direction: column;
     background: #fff;
     border-radius: 10px;
-    width: 25%;
-    height: 60%;
+    min-width: 25%;
+    min-height: 60%;
     justify-content: space-between;
   
     h2 {
       margin-top: 0;
-    }
-    
-    .close {
-      //position: absolute;
-      display: flex;
-      justify-content: flex-end;
-      top: 20px;
-      right: 30px;
-      transition: all 200ms;
-      font-size: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-      
-      &:hover {
-        color: #06D85F;
-      }
-    }
-    
-    .content {
-      max-height: 30%;
-      overflow: auto;
     }
 }
 
@@ -56,13 +49,13 @@ input {
 }
 
 .err {
-  border-color: rgb(169, 28, 26);
+  border-color: $error-color;
   background-color: pink;
 }
 
 .errMsg {
   font-size: .8em;
-  color: red;
+  color: $error-color;
 }
 
 .label-cage{

@@ -36,7 +36,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
         
         <div className="form-input">
             <div className="label-cage">
-              <label>Name:</label>
+              <label>Name</label>
               {nameValid ? "" : <div className="errMsg">invalid name</div>}
             </div>
             <input 
@@ -47,7 +47,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             onChange={(e) => onChangeSetName(e.target.value)}
             />
             <div className="label-cage">
-              <label>Qty:</label>
+              <label>Qty</label>
               {qtyValid ? "" : <div className="errMsg">value out of range</div>}
             </div>
             <input type="number"
@@ -58,7 +58,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             onChange={(e) => onChangeSetQty(e.target.value)}
             />
             <div className="label-cage">
-              <label>Min:</label>
+              <label>Min</label>
               {minValid ? "" : <div className="errMsg">value out of range</div>}
             </div>
             <input type="number"
@@ -69,7 +69,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
             onChange={(e) => onChangeSetMin(e.target.value)}
             />
             <div className="label-cage">
-              <label>Max:</label>
+              <label>Max</label>
               {maxValid ? "" : <div className="errMsg">value out of range</div>}
             </div>
             <input type="number"
