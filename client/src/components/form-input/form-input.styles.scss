@@ -2,11 +2,11 @@ $error-color: #a91c1a;
 $border-color: rgb(212, 212, 212);
 
 @-webkit-keyframes fadeEffect {
-  from {opacity: .8;}
+  from {opacity: .5;}
   to {opacity: 1;}
 }
 @keyframes fadeEffect {
-  from {opacity: .8;}
+  from {opacity: .5;}
   to {opacity: 1;}
 }
 
@@ -32,7 +32,7 @@ input {
 label {
   margin-bottom: 5px;
   font-weight: bold;
-  opacity: .8;
+  opacity: .5;
 }
 
 .form-input {
@@ -43,12 +43,13 @@ label {
     display: flex;
     align-items: flex-end;
     border: solid;
-    border-width: 1px;
+    border-width: 3px;
+    border-color: white;
     padding: 2rem;
     margin-left: 1em;
     margin-right: 1em;
     flex-direction: column;
-    background: #fff;
+    background: rgba(255,255,255,.8);
     border-radius: 10px;
     width: 50%;
     height: 100%;
