@@ -53,7 +53,7 @@ const TreeChart = ({data, selectedId, selected}) => {
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}
     >
-        <TreeItem className="tree-chart" label={<div className="d-flex"><MainIcon className={iconClasses.root} />Main</div>} nodeId="main">
+        <TreeItem label={<div className="d-flex"><MainIcon className={iconClasses.root} />Main</div>} nodeId="main">
             {data.map((val, key) => {
             return (
                 <TreeItem key={key} nodeId={"" + val.id} label={<div className="d-flex"><Dice className={iconClasses.root}/>{val.name}</div>} onClick={()=> selectedId(val.id)}>
