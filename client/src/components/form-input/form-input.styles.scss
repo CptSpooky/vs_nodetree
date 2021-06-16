@@ -5,11 +5,11 @@ $accent-purple: #1b0454;
 $accent-lghtpurple: #861180;
 
 @-webkit-keyframes fadeEffect {
-  from {opacity: .5;}
+  from {opacity: 0;}
   to {opacity: 1;}
 }
 @keyframes fadeEffect {
-  from {opacity: .5;}
+  from {opacity: 0;}
   to {opacity: 1;}
 }
 
@@ -22,8 +22,6 @@ input {
     border-style: solid !important;
 
     &:hover {
-      -webkit-animation: fadeEffect 1s;
-      animation: fadeEffect 1s; /* Fading effect takes 1 second */
       border-color: $accent-lghtpurple !important;
     }
 
@@ -96,10 +94,12 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
-.initalText{
-  text-align: center;
+.initial-text {
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
 
 @media only screen and (max-width: 692px) {

@@ -28,10 +28,10 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
 
   if(selectedId == ""){
     return (
-      <div id="popupedit" className="popup">
+      <div id="popupedit" className="popup initial-text">
         <div className="d-flex-justify-align">
           <h2>Factory Node Tree</h2>
-          <p className="initalText">Add a factory or select one from the tree to edit.</p>
+          <p>Add a factory or select one from the tree to edit.</p>
           <LeftArrow />
         </div>
       </div>
