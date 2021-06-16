@@ -70,6 +70,23 @@ hr {
     height: 100%;
     background-color: rgba(0,0,0,.3);
 }
+.MuiBottomNavigation-root {
+    justify-content: space-between !important;
+}
+
+.fa {
+    color: white;
+    font-size: 30px;
+
+    &:hover {
+        color: grey;
+    }
+}
+
+.name {
+    font-size: 20px;
+    color: white;
+}
 
 @media only screen and (max-width: 692px) {
     .factory-interface {

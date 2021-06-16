@@ -13,7 +13,8 @@ import './app.styles.scss';
 
 const navStyles = makeStyles({
   root: {
-    width: "100%"
+    width: "100%",
+    backgroundColor: "0c0223"
   }
 });
 
@@ -165,7 +166,8 @@ function App() {
       showLabels
       className={classes.root}
     >
-      <BottomNavAction label="Recents" icon={<i class="fa fa-github" />} />
+      <div className="name">Danielle Varela</div>
+      <BottomNavAction label="GitHub" icon={<a className="fa fa-github" href="https://github.com/CptSpooky/vs_nodetree" />} />
     </BottomNav>
     </>
   );
