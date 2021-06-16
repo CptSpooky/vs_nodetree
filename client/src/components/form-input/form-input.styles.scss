@@ -81,6 +81,14 @@ label {
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
 @media only screen and (max-width: 600px) {
   .popup {
     width: 100%;
