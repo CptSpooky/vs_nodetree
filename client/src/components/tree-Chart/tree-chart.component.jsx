@@ -15,11 +15,11 @@ const useStyles = makeStyles({
     flexGrow: 1,
     margin: "1em",
     color: "white",
-    "&.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label": {
-        backgroundColor: "rgba(216,1,105,.7) !important",
-        background: "rgba(216,1,105,.7) !important",
-        color: "rgba(216,1,105,.7) !important"
-      }
+    // "&.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label": {
+    //     backgroundColor: "rgba(216,1,105,.7) !important",
+    //     background: "rgba(216,1,105,.7) !important",
+    //     color: "rgba(216,1,105,.7) !important"
+    //   }
   },
 });
 
@@ -54,7 +54,7 @@ const TreeChart = ({data, selectedId, selected}) => {
   return(
     <TreeView
       //className={classes.root}
-      classes={{root: classes.root, selected: 'selected'}}
+      classes={{root: classes.root}}
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}

@@ -3,5 +3,9 @@
 }
 
 .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label {
-    background-color: rgba(216,1,105,.7) !important;
+    background-color: rgba(216,1,105,.5) !important;
+}
+
+.MuiTreeItem-root > .MuiTreeItem-content:hover {
+    background-color: rgba(216,1,105,.3) !important;
 }
