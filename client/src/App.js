@@ -114,34 +114,36 @@ function App() {
 
   return (
       <div className="container">
-        <div className ="factory-interface">
-          <div className="factory-list">
-            <TreeChart data = {factoryList} 
-              selectedId = {value => {applyCurrentId(value)}} 
-              selected = {"" + currentId}    
+        <div className ="groupContainer">
+          <div className ="factory-interface">
+            <div className="factory-list">
+              <TreeChart data = {factoryList} 
+                selectedId = {value => {applyCurrentId(value)}} 
+                selected = {"" + currentId}    
+              />
+            </div>
+            <Interface 
+                addFactory = {addFactory}
+                deleteFactory = {deleteFactory}
+                onRegenFactorySeed = {regenFactorySeed}
+                selectedId = {currentId}
             />
-          </div>
-          <Interface 
-              addFactory = {addFactory}
-              deleteFactory = {deleteFactory}
-              onRegenFactorySeed = {regenFactorySeed}
-              selectedId = {currentId}
+          </div>  
+          <FormInputEdit 
+            onChangeSetName = {value => setName(value)}
+            onChangeSetQty = {value => setQty(value)}
+            onChangeSetMin = {value => setMin(value)}
+            onChangeSetMax = {value => setMax(value)}
+            updateFactory = {updateFactory}
+            currentId = {currentId}
+            factoryList = {factoryList}
+            name = {name}
+            qty = {qty}
+            min = {min}
+            max = {max}
+            selectedId = {currentId}
           />
-        </div>  
-        <FormInputEdit 
-          onChangeSetName = {value => setName(value)}
-          onChangeSetQty = {value => setQty(value)}
-          onChangeSetMin = {value => setMin(value)}
-          onChangeSetMax = {value => setMax(value)}
-          updateFactory = {updateFactory}
-          currentId = {currentId}
-          factoryList = {factoryList}
-          name = {name}
-          qty = {qty}
-          min = {min}
-          max = {max}
-          selectedId = {currentId}
-        />
+        </div>
       </div>
   );
 }

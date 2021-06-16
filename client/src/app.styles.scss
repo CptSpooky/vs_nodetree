@@ -17,6 +17,15 @@ p {
     height: 100vh;
 }
 
+.groupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+}
+
 .factory-interface {
     display: flex;
     justify-content: center;
