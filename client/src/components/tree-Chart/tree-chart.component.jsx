@@ -53,7 +53,8 @@ const TreeChart = ({data, selectedId, selected}) => {
 
   return(
     <TreeView
-      className={classes.root}
+      //className={classes.root}
+      classes={{root: classes.root, selected: 'selected'}}
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}
