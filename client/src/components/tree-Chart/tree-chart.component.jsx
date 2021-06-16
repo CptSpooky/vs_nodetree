@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     flexGrow: 1,
     margin: "1em",
     color: "white",
-    "&.Mui-selected > .MuiTreeItem-content": {
+    "&.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label": {
         color: "rgba(216,1,105,.7)"
       }
   },
