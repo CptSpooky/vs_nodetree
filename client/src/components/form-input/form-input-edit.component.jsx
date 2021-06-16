@@ -60,7 +60,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
           />
 
           <div className="label-cage">
-            <label>Qty</label>
+            <label>Quantity</label>
             {qtyValid ? "" : <div className="errMsg">value out of range</div>}
           </div>
           <input type="number"
