@@ -13,7 +13,9 @@ body {
 h2 {
     width: 100%;
     margin-bottom: 0px;
+    margin-top: 0px;
     font-weight: medium;
+    color: #620169;
 }
 
 p {
@@ -21,6 +23,7 @@ p {
     font-size: small;
     line-height: 1.5em;
     margin-bottom: 3em;
+    color: grey;
 }
 
 .container {
@@ -57,6 +60,7 @@ p {
     padding: 15px;
     width: 100%;
     height: 100%;
+    background-color: rgba(0,0,0,.3);
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,5 +1,7 @@
 .d-flex {
     display: flex;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label {
@@ -7,5 +9,9 @@
 }
 
 .MuiTreeItem-root > .MuiTreeItem-content:hover {
-    background-color: rgba(216,1,105,.3) !important;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.MuiTreeItem-label {
+    border-radius: 10px;
 }

@@ -1,5 +1,7 @@
-$error-color: #a91c1a;
+$error-color: #990146;
 $border-color: rgb(212, 212, 212);
+$accent-blue: #0da8a4;
+$accent-purple: #1b0454;
 
 @-webkit-keyframes fadeEffect {
   from {opacity: .5;}
@@ -21,11 +23,11 @@ input {
     &:hover {
       -webkit-animation: fadeEffect 1s;
       animation: fadeEffect 1s; /* Fading effect takes 1 second */
-      border-color: #06D85F !important;
+      border-color: $accent-blue !important;
     }
 
     &:focus {
-      outline-color: black !important;
+      outline-color: $accent-purple !important;
     }
 }
 
@@ -54,10 +56,6 @@ label {
     width: 50%;
     height: 100%;
     justify-content: space-between;
-  
-    h2 {
-      margin-top: 0;
-    }
 }
 
 .factory-setting-buttons {
@@ -68,7 +66,7 @@ label {
 }
 
 .err {
-  border-color: $error-color;
+  outline-color: $error-color;
   background-color: pink;
 }
 
