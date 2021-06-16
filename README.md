@@ -9,7 +9,7 @@
   ## Description
   ![badge](https://img.shields.io/badge/License-MIT-yellow.svg)
   [App Link](https://pure-forest-64023.herokuapp.com/)
-  ![App Img](https://user-images.githubusercontent.com/66426144/122220997-dc2bef00-ce7e-11eb-81c7-6ddcaacdc954.png)
+  ![App Img](https://user-images.githubusercontent.com/66426144/122231570-86f4db00-ce88-11eb-82c8-2c9ca39f595a.png)
 
   This app was created with a ReactJs/Axios frontend and NodeJs/Express/MySql backend. JawsDB was used to deploy the database to Heroku.
 
