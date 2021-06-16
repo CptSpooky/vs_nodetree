@@ -17,6 +17,12 @@ const useStyles = makeStyles({
   },
 });
 
+const iconStyles = makeStyles({
+    root: {
+      marginRight: "5px"
+    },
+  });
+
 /* Generate an integer between min (inclusive) and max (inclusive) */
 const randBetween = (rng, min, max) => {
     return Math.floor(rng() * (max - min + 1)) + min;
@@ -36,6 +42,7 @@ const generateNums = (factory) => {
 
 const TreeChart = ({data, selectedId, selected}) => {
   const classes = useStyles();
+  const iconClasses = iconStyles();
   if (typeof data === 'undefined') {return (<div></div>)}
 
   return(
@@ -45,10 +52,10 @@ const TreeChart = ({data, selectedId, selected}) => {
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selected}
     >
-        <TreeItem label={<div className="d-flex"><MainIcon />Main</div>} nodeId="main">
+        <TreeItem label={<div className="d-flex"><MainIcon className={iconClasses.root} />Main</div>} nodeId="main">
             {data.map((val, key) => {
             return (
-                <TreeItem key={key} nodeId={"" + val.id} label={<div className="d-flex"><Dice />{val.name}</div>} onClick={()=> selectedId(val.id)}>
+                <TreeItem key={key} nodeId={"" + val.id} label={<div className="d-flex"><Dice className={iconClasses.root}/>{val.name}</div>} onClick={()=> selectedId(val.id)}>
                     {generateNums(val).map((val, key) => {
                         return(
                             <TreeItem key={key} nodeId={"" + val.id + "-" + 1} label={"" + val}></TreeItem>
