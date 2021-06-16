@@ -110,7 +110,7 @@ const FormInputAdd = ({ onChangeSetName, onChangeSetQty, onChangeSetMin, onChang
         >
           Save
         </Button>
-        <CheckIcon className={saveClicked ? setTimeout(()=>{return "visible"}, 500) : "hidden" } className={classes.check} />
+        <CheckIcon className={saveClicked ? setTimeout(()=>{return classes.check}, 500) : "hidden" } />
       </div>
     </div>
   );
