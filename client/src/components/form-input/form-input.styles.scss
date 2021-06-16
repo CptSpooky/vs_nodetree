@@ -100,6 +100,7 @@ label {
 .initial-text {
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  flex-grow: 1;
 }
 
 @media only screen and (max-width: 692px) {
