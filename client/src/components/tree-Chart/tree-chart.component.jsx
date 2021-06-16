@@ -14,7 +14,10 @@ const useStyles = makeStyles({
     height: "auto",
     flexGrow: 1,
     margin: "1em",
-    color: "white"
+    color: "white",
+    "&.Mui-selected > .MuiTreeItem-content": {
+        color: "rgba(216,1,105,.7)"
+      }
   },
 });
 
